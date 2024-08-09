@@ -89,3 +89,10 @@
 .gray--color {
   color: rgb(182, 181, 181) !important;
 }
+
+/* Product Lists */
+.product-card {
+  flex: 1;
+  height: 250px;
+  text-align: center;
+}

@@ -4,8 +4,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import Sidebar from './Components/Sidebar/Sidebar';
 import CustomHeader from './Components/Header/Header';
-import MainContent from './Components/Content/MainContent';
-import SideContent from './Components/Content/SideContent';
 import Home from './Components/Pages/Home/home';
 import Ebook from './Components/Pages/Ebook/ebook';
 import Audio from './Components/Pages/Audio/audio';
@@ -48,15 +46,6 @@ const App = () => {
               <Route path="/myactivity" element={<MyActivity />} />
               <Route path="/history" element={<History />} />
               <Route path="/categories" element={<Categories />} />
-              <Route
-                path="/"
-                element={
-                  <div style={{ display: 'flex', gap: 'large' }}>
-                    <MainContent />
-                    <SideContent />
-                  </div>
-                }
-              />
             </Routes>
           </Content>
         </Layout>
