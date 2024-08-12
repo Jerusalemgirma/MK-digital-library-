@@ -61,13 +61,6 @@ const ManageAccount = () => {
         >
           About
         </a>
-        <a 
-          href="#"
-          className={`link ${activeLink === 'activity' ? 'active' : ''}`}
-          onClick={() => handleLinkClick('activity')}
-        >
-          My Activity
-        </a>
       </div>
 
       <hr className="separator" />
@@ -80,7 +73,6 @@ const ManageAccount = () => {
         {activeLink === 'audio' }
         {activeLink === 'bookmark' }
         {activeLink === 'about' && <About />}
-        {activeLink === 'activity' && <MyActivity />}
       </div>
     </div>
   );
