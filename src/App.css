@@ -93,6 +93,6 @@
 /* Product Lists */
 .product-card {
   flex: 1;
-  height: 250px;
+  /* height: 250px; */
   text-align: center;
 }
