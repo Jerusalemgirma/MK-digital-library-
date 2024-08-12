@@ -23,7 +23,7 @@ const ProfilePopup = ({ onClose }) => {
   }, [onClose]);
 
   const handleManageAccountClick = () => {
-    navigate('/manageaccount'); 
+    navigate('/myactivity'); 
     onClose(); 
   };
 
