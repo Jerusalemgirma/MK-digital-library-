@@ -4,7 +4,7 @@ function Audio() {
   return (
     <div>
       <h1>Audio</h1>
-      <p>This is the Audio page. Here you can find a collection of audio files.</p>
+      <p>This is the Audio page. Here you can find your saved Audios.</p>
     </div>
   );
 }
