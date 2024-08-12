@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import { Avatar, Flex, Typography } from 'antd';
 import Search from 'antd/es/input/Search';
 import { MessageOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
-import ProfilePopup from './ProfilePopup'; // Import the ProfilePopup component
+import ProfilePopup from './ProfilePopup'; 
 
 const CustomHeader = () => {
-  const [isPopupVisible, setPopupVisible] = useState(false); // State to manage popup visibility
+  const [isPopupVisible, setPopupVisible] = useState(false); 
 
   const togglePopup = () => {
-    setPopupVisible(!isPopupVisible); // Toggle the popup visibility
+    setPopupVisible(!isPopupVisible); 
   };
 
   const closePopup = () => {
-    setPopupVisible(false); // Close the popup
+    setPopupVisible(false); 
   };
 
   return (
@@ -26,9 +26,9 @@ const CustomHeader = () => {
       <Flex align="center" gap="10px">
         <MessageOutlined className='header-icons'/>
         <NotificationOutlined className='header-icons'/>
-        <Avatar icon={<UserOutlined />} onClick={togglePopup} /> {/* Toggle popup on click */}
+        <Avatar icon={<UserOutlined />} onClick={togglePopup} /> 
       </Flex>
-      {isPopupVisible && <ProfilePopup onClose={closePopup} />} {/* Render the ProfilePopup if visible */}
+      {isPopupVisible && <ProfilePopup onClose={closePopup} />}
     </Flex>
   );
 };
