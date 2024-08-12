@@ -16,19 +16,30 @@
     color: black;
     padding: 20px;
     border-radius: 10px;
-    text-align: center;
+    text-align: left;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     width: 400px;
     max-height: 300px;
     overflow-y: auto;
 }
 
-.popup-content h2 {
-    margin-top: 0;
+.profile-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.popup-content p {
-    margin: 10px 0;
+.profile-details {
+    margin-left: 10px;
+}
+
+.profile-name {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.profile-email {
+    font-size: 18px;
 }
 
 .popup-content button {
