@@ -1,51 +1,89 @@
-import { Card, Flex, Typography, Button,Image } from 'antd';
-import ProductData from '../../Data/ProductData';
+import React, { useState } from 'react';
+import './myactivity.css';
+import { FaUserCircle } from 'react-icons/fa';
+// import About from './About';
+import MyActivity from './myactivity'; 
 
-const {Meta} =Card;
+const ManageAccount = () => {
+  const [activeLink, setActiveLink] = useState('');
 
-const MyActivity = () => {
+  const handleLinkClick = (link) => {
+    setActiveLink(link);
+  };
+
   return (
-    <div style={{ flex: 1 }}>
-      <Flex vertical gap="2.3rem">
-      <Card style={{ height: 260, padding: '20px' }}>
-      <Flex vertical gap="30px">
-        <Flex vertical align="flex-start">
-          <Typography.Title level={2} strong>
-Here are you ACTIVITIES          </Typography.Title>
-          <Typography.Text type="secondary" strong>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, aliquam!
-          </Typography.Text>
-        </Flex>
-        <Flex gap="large">
-          <Button type="primary" size="large">
-            Explore More
-          </Button>
-          <Button size="large">
-            DELETE or REVIEW
-          </Button>
-        </Flex>
-      </Flex>
-    </Card>
-    <Flex align="center" justify="space-between">
-        <Typography.Title level={3} strong className="primary--color">
-          MY-ACTIVITY
-        </Typography.Title>
-        <Button type="link" className="gray--color">
-          View All
-        </Button>
-      </Flex>
+    <div className="manage-account-page">
+      <div className="profile-section">
+        <FaUserCircle className="profile-icon" />
+        <h1 className="user-name">User Name</h1>
+      </div>
 
-      <Flex align="center" gap="large">
-        {ProductData.map((plant) => (
-          <Card key={plant.id} hoverable className="product-card">
-            <Image src={plant.picture} style={{ width: '130px' }} />
-            <Meta title={plant.name} style={{ marginTop: '1rem' }} />
-          </Card>
-        ))}
-      </Flex>
-      </Flex>
+      <div className="links-section">
+        <a 
+          href="#"
+          className={`link ${activeLink === 'ebook' ? 'active' : ''}`}
+          onClick={() => handleLinkClick('ebook')}
+        >
+          eBook
+        </a>
+        <a 
+          href="#"
+          className={`link ${activeLink === 'magazine' ? 'active' : ''}`}
+          onClick={() => handleLinkClick('magazine')}
+        >
+          Magazine
+        </a>
+        <a 
+          href="#"
+          className={`link ${activeLink === 'video' ? 'active' : ''}`}
+          onClick={() => handleLinkClick('video')}
+        >
+          Video
+        </a>
+        <a 
+          href="#"
+          className={`link ${activeLink === 'audio' ? 'active' : ''}`}
+          onClick={() => handleLinkClick('audio')}
+        >
+          Audio
+        </a>
+        <a 
+          href="#"
+          className={`link ${activeLink === 'bookmark' ? 'active' : ''}`}
+          onClick={() => handleLinkClick('bookmark')}
+        >
+          Bookmark
+        </a>
+        <a 
+          href="#"
+          className={`link ${activeLink === 'about' ? 'active' : ''}`}
+          onClick={() => handleLinkClick('about')}
+        >
+          About
+        </a>
+        <a 
+          href="#"
+          className={`link ${activeLink === 'activity' ? 'active' : ''}`}
+          onClick={() => handleLinkClick('activity')}
+        >
+          My Activity
+        </a>
+      </div>
+
+      <hr className="separator" />
+
+      <div className="content-section">
+        {activeLink === '' }
+        {activeLink === 'ebook' }
+        {activeLink === 'magazine' }
+        {activeLink === 'video'  }
+        {activeLink === 'audio' }
+        {activeLink === 'bookmark' }
+        {activeLink === 'about' && <About />}
+        {activeLink === 'activity' && <MyActivity />}
+      </div>
     </div>
   );
 };
 
-export default MyActivity;
+export default ManageAccount;
