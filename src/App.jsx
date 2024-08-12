@@ -9,6 +9,7 @@ import Ebook from './Components/Pages/Ebook/ebook';
 import Audio from './Components/Pages/Audio/audio';
 import Video from './Components/Pages/Video/video';
 import Magazines from './Components/Pages/Magazines/magazines';
+import ReadMagazine from './Components/Pages/Magazines/readMagazine.jsx';
 import MyActivity from './Components/Pages/MyActivity/myactivity';
 import History from './Components/Pages/History/history';
 import Categories from './Components/Pages/Categories/categories';
@@ -43,6 +44,7 @@ const App = () => {
               <Route path="/audio" element={<Audio />} />
               <Route path="/video" element={<Video />} />
               <Route path="/magazines" element={<Magazines />} />
+              <Route path="/read/:id" element={<ReadMagazine />} />
               <Route path="/myactivity" element={<MyActivity />} />
               <Route path="/history" element={<History />} />
               <Route path="/categories" element={<Categories />} />
