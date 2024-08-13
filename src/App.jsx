@@ -13,6 +13,7 @@ import ReadMagazine from './Components/Pages/Magazines/readMagazine.jsx';
 import MyActivity from './Components/Pages/MyActivity/myactivity';
 import History from './Components/Pages/History/history';
 import Categories from './Components/Pages/Categories/categories';
+import EditAbout from './Components/Pages/MyActivity/Navs/editabout'; 
 
 import './App.css';
 
@@ -49,7 +50,8 @@ const App = () => {
               <Route path="/myactivity" element={<MyActivity />} />
               <Route path="/history" element={<History />} />
               <Route path="/categories" element={<Categories />} />
-              <Route path="*" element={<Navigate to="/" />} /> {/* Redirect to home for undefined routes */}
+              <Route path="/editabout" element={<EditAbout />} />
+              <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </Content>
         </Layout>
