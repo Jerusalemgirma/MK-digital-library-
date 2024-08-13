@@ -1,6 +1,6 @@
 import { Button, Layout } from 'antd';
 import { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import Sidebar from './Components/Sidebar/Sidebar';
 import CustomHeader from './Components/Header/Header';
@@ -39,6 +39,7 @@ const App = () => {
           </Header>
           <Content className='content'>
             <Routes>
+              <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
               <Route path="/ebook" element={<Ebook />} />
               <Route path="/audio" element={<Audio />} />
@@ -48,6 +49,7 @@ const App = () => {
               <Route path="/myactivity" element={<MyActivity />} />
               <Route path="/history" element={<History />} />
               <Route path="/categories" element={<Categories />} />
+              <Route path="*" element={<Navigate to="/" />} /> {/* Redirect to home for undefined routes */}
             </Routes>
           </Content>
         </Layout>

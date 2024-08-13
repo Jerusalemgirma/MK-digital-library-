@@ -70,7 +70,6 @@ const ManageAccount = () => {
       <hr className="separator" />
 
       <div className="content-section">
-        {activeLink === '' }
         {activeLink === 'ebook'&& <Ebook /> }
         {activeLink === 'magazine' && <Magazine/> }
         {activeLink === 'video' && <Video/>  }
