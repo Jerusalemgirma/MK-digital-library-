@@ -1,61 +1,21 @@
 .edit-about-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    margin-top: 50px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
+.edit-about-page h2 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.edit-about-form {
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
+.edit-about-form .ant-form-item {
+  margin-bottom: 16px;
 }
 
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    font-size: 16px;
-    margin-bottom: 5px;
-    color: #333;
-    display: block;
-}
-
-.form-group input,
-.form-group select {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.save-button,
-.cancel-button {
-    padding: 10px 20px;
-    margin-top: 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.save-button {
-    background-color: #007bff;
-    color: white;
-    margin-bottom: 10px;
-}
-
-.cancel-button {
-    background-color: #6c757d;
-    color: white;
+.edit-about-form button {
+  width: 100%;
 }
