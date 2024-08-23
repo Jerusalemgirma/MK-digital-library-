@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import './myactivity.css';
 import { FaUserCircle } from 'react-icons/fa';
-// import About from './About';
-import MyActivity from './myactivity'; 
+import About from './Navs/About';
+import Bookmark from './Navs/Bookmark';
+import Audio from './Navs/Audio';
+import Magazine from './Navs/Magazine'
+import Ebook from './Navs/Ebook';
+import Video from './Navs/Video'
 
 const ManageAccount = () => {
   const [activeLink, setActiveLink] = useState('');
@@ -66,12 +70,11 @@ const ManageAccount = () => {
       <hr className="separator" />
 
       <div className="content-section">
-        {activeLink === '' }
-        {activeLink === 'ebook' }
-        {activeLink === 'magazine' }
-        {activeLink === 'video'  }
-        {activeLink === 'audio' }
-        {activeLink === 'bookmark' }
+        {activeLink === 'ebook'&& <Ebook /> }
+        {activeLink === 'magazine' && <Magazine/> }
+        {activeLink === 'video' && <Video/>  }
+        {activeLink === 'audio' && <Audio/ > } 
+        {activeLink === 'bookmark'&& <Bookmark/> }
         {activeLink === 'about' && <About />}
       </div>
     </div>
