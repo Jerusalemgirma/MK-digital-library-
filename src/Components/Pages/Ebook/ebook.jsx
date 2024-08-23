@@ -1,4 +1,6 @@
-import { Card, Flex, Typography, Button, Image, message } from 'antd';
+import React, { useState } from 'react';
+import { Card, Flex, Typography, Image, Button, message, Modal } from 'antd';
+import { LikeOutlined, DislikeOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import ProductData from '../../Data/ProductData';
 
@@ -6,13 +8,28 @@ const { Meta } = Card;
 
 const Ebook = () => {
   const navigate = useNavigate();
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [selectedEbook, setSelectedEbook] = useState(null);
 
-  const handleRead = (plant) => {
-    navigate(`/read/${plant.id}`);
+  const handleRead = () => {
+    if (selectedEbook) {
+      navigate(`/read/${selectedEbook.id}`);
+      setIsModalVisible(false);
+    }
   };
 
-  const handleReserve = (plant) => {
-    message.success(`You have reserved ${plant.name} successfully!`);
+  const handleReserve = (ebook) => {
+    message.success(`You have reserved ${ebook.name} successfully!`);
+  };
+
+  const handlePreview = (ebook) => {
+    setSelectedEbook(ebook);
+    setIsModalVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+    setSelectedEbook(null);
   };
 
   return (
@@ -22,7 +39,7 @@ const Ebook = () => {
           <Flex vertical gap="30px">
             <Flex vertical align="flex-start">
               <Typography.Title level={2} strong>
-                Here are your Ebooks found
+                Here are your Ebooks
               </Typography.Title>
               <Typography.Text type="secondary" strong>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, aliquam!
@@ -49,30 +66,58 @@ const Ebook = () => {
         </Flex>
 
         <Flex align="center" gap="large">
-          {ProductData.map((plant) => (
+          {ProductData.map((ebook) => (
             <Card
-              key={plant.id}
+              key={ebook.id}
               hoverable
               className="product-card"
-              style={{ width: 240, background: '#fff' }} // Set the card background to white
+              onClick={() => handlePreview(ebook)}
+              style={{ cursor: 'pointer', width: 240, background: '#fff' }}
             >
               <Image
-                src={plant.cover}
+                src={ebook.cover}
                 style={{ width: '130px', cursor: 'pointer', marginBottom: '10px' }}
-                onClick={() => handleRead(plant)}
               />
-              <Meta title={plant.name} style={{ marginBottom: '1rem' }} />
-              <Button
-                type="primary"
-                onClick={() => handleReserve(plant)}
-                style={{ marginTop: '10px' }}
-              >
-                Reserve
-              </Button>
+              <Meta title={ebook.name} style={{ marginBottom: '1rem' }} />
             </Card>
           ))}
         </Flex>
       </Flex>
+
+      {/* Modal for preview */}
+      {selectedEbook && (
+        <Modal
+          title={selectedEbook.name}
+          visible={isModalVisible}
+          onCancel={handleCancel}
+          footer={[
+            <Flex key="actions" align="center" justify="space-between" style={{ padding: '0 20px' }}>
+              <Flex gap="10px">
+                <Button icon={<LikeOutlined />} />
+                <Button icon={<DislikeOutlined />} />
+              </Flex>
+              <Flex gap="10px">
+                <Button type="primary" onClick={() => handleReserve(selectedEbook)}>
+                  Reserve
+                </Button>
+                <Button onClick={handleRead}>
+                  Read
+                </Button>
+              </Flex>
+            </Flex>,
+          ]}
+        >
+          <Flex vertical align="center" gap="16px">
+            <Image
+              src={selectedEbook.cover}
+              alt={selectedEbook.name}
+              style={{ width: '100%', maxWidth: '300px' }}
+            />
+            <Typography.Text><strong>Author:</strong> {selectedEbook.author}</Typography.Text>
+            <Typography.Text><strong>Description:</strong> {selectedEbook.description}</Typography.Text>
+          </Flex>
+        </Modal>
+      )}
     </div>
   );
 };

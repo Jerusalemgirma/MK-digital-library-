@@ -10,19 +10,25 @@ const ProductData = [
     id: 1,
     name: "Gold plated Gospel",
     book: plant01,
-    cover: cover01, // Link to the cover image
+    cover: cover01, 
+    author: "Author Name",
+    description: "This is a description of the Gold plated Gospel.",
   },
   {
     id: 2,
     name: "Biranna Gospel",
     book: plant02,
     cover: cover02,
+    author: "Author Name",
+    description: "This is a description of the Gold plated Gospel.",
   },
   {
     id: 3,
     name: "English Bible",
     book: plant03,
     cover: cover03,
+    author: "Author Name",
+    description: "This is a description of the Gold plated Gospel.",
   },
 ];
 
